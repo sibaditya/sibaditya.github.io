@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sibaditya Maiti — Senior Android Engineer & Tech Lead</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0a192f;
+      --navy-light: #112240;
+      --slate: #8892b0;
+      --slate-light: #a8b2d8;
+      --white: #ccd6f6;
+      --white-bright: #e6f1ff;
+      --green: #64ffda;
+      --green-tint: rgba(100,255,218,0.1);
+      --font-sans: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--slate);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 50px;
+      background: rgba(10,25,47,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(100,255,218,0.08);
+      transition: box-shadow 0.3s;
+    }
+    .nav-logo {
+      font-family: var(--font-mono);
+      color: var(--green);
+      font-size: 1.1rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 30px; list-style: none; }
+    .nav-links a {
+      color: var(--slate-light);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      transition: color 0.2s;
+    }
+    .nav-links a span { color: var(--green); margin-right: 4px; }
+    .nav-links a:hover { color: var(--green); }
+    .nav-resume {
+      border: 1px solid var(--green);
+      color: var(--green);
+      padding: 8px 18px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-resume:hover { background: var(--green-tint); }
+
+    /* ─── SECTIONS ────────────────────────────────────── */
+    section { padding: 100px 0; max-width: 1000px; margin: 0 auto; padding-left: 50px; padding-right: 50px; }
+
+    /* ─── HERO ────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 140px;
+    }
+    .hero-tag {
+      font-family: var(--font-mono);
+      color: var(--green);
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+    .hero-name {
+      font-size: clamp(40px, 7vw, 80px);
+      font-weight: 800;
+      color: var(--white-bright);
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+    .hero-title {
+      font-size: clamp(28px, 5vw, 58px);
+      font-weight: 700;
+      color: var(--slate);
+      line-height: 1.1;
+      margin-top: 6px;
+    }
+    .hero-desc {
+      max-width: 580px;
+      margin-top: 28px;
+      font-size: 1.05rem;
+      color: var(--slate);
+      line-height: 1.7;
+    }
+    .hero-stats {
+      display: flex; gap: 40px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+    .stat { display: flex; flex-direction: column; }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--green);
+      font-family: var(--font-mono);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--slate);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .hero-ctas { display: flex; gap: 16px; margin-top: 44px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block;
+      border: 1px solid var(--green);
+      color: var(--green);
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--green-tint); }
+    .btn-secondary {
+      display: inline-block;
+      color: var(--slate-light);
+      padding: 14px 28px;
+      border: 1px solid var(--slate);
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--green); color: var(--green); }
+
+    /* ─── SECTION HEADERS ─────────────────────────────── */
+    .section-heading {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 50px;
+      white-space: nowrap;
+    }
+    .section-heading h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--white-bright);
+    }
+    .section-heading h2 span {
+      font-family: var(--font-mono);
+      color: var(--green);
+      font-size: 1.1rem;
+      margin-right: 10px;
+    }
+    .section-line {
+      height: 1px;
+      background: var(--navy-light);
+      flex: 1;
+      min-width: 60px;
+      border: none;
+      border-top: 1px solid rgba(100,255,218,0.15);
+    }
+
+    /* ─── ABOUT ───────────────────────────────────────── */
+    .about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 60px; align-items: start; }
+    .about-text p { margin-bottom: 16px; line-height: 1.75; font-size: 1rem; }
+    .about-text a { color: var(--green); text-decoration: none; }
+    .about-highlights {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin-top: 24px;
+    }
+    .highlight-tag {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--green);
+      background: var(--green-tint);
+      border: 1px solid rgba(100,255,218,0.2);
+      padding: 4px 12px;
+      border-radius: 30px;
+    }
+    .about-img-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+    .about-img-wrap::after {
+      content: '';
+      position: absolute;
+      top: 14px; left: 14px;
+      width: 100%; height: 100%;
+      border: 2px solid var(--green);
+      border-radius: 6px;
+      z-index: 0;
+      transition: top 0.3s, left 0.3s;
+    }
+    .about-img-wrap:hover::after { top: 8px; left: 8px; }
+    .about-img-placeholder {
+      position: relative; z-index: 1;
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .about-img-placeholder img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: grayscale(20%);
+      transition: filter 0.3s;
+    }
+    .about-img-wrap:hover .about-img-placeholder img {
+      filter: grayscale(0%);
+    }
+
+    /* ─── SKILLS ──────────────────────────────────────── */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+    .skill-card {
+      background: var(--navy-light);
+      border: 1px solid rgba(100,255,218,0.08);
+      border-radius: 8px;
+      padding: 24px 28px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .skill-card:hover { border-color: rgba(100,255,218,0.3); transform: translateY(-4px); }
+    .skill-card-icon { font-size: 1.6rem; margin-bottom: 12px; }
+    .skill-card h3 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--green);
+      font-family: var(--font-mono);
+      margin-bottom: 14px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--slate-light);
+      background: rgba(100,255,218,0.05);
+      border: 1px solid rgba(100,255,218,0.12);
+      padding: 3px 10px;
+      border-radius: 3px;
+    }
+
+    /* ─── EXPERIENCE ──────────────────────────────────── */
+    .exp-tabs { display: flex; }
+    .exp-companies {
+      display: flex;
+      flex-direction: column;
+      min-width: 160px;
+      border-left: 2px solid rgba(100,255,218,0.15);
+    }
+    .exp-company-btn {
+      background: none; border: none; cursor: pointer;
+      text-align: left;
+      padding: 12px 20px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--slate);
+      border-left: 2px solid transparent;
+      margin-left: -2px;
+      transition: color 0.2s, background 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+    .exp-company-btn:hover { color: var(--green); background: var(--green-tint); }
+    .exp-company-btn.active { color: var(--green); border-left-color: var(--green); background: var(--green-tint); }
+    .exp-details { padding: 0 30px; flex: 1; }
+    .exp-panel { display: none; }
+    .exp-panel.active { display: block; }
+    .exp-role {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white-bright);
+      line-height: 1.3;
+    }
+    .exp-role span { color: var(--green); }
+    .exp-meta {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--slate);
+      margin-top: 6px;
+      margin-bottom: 20px;
+    }
+    .exp-list { list-style: none; }
+    .exp-list li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .exp-list li::before {
+      content: '▹';
+      position: absolute; left: 0;
+      color: var(--green);
+    }
+    .exp-tech {
+      margin-top: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--slate);
+      line-height: 1.7;
+    }
+    .exp-tech strong { color: var(--green); }
+
+    /* ─── EDUCATION ───────────────────────────────────── */
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .edu-card {
+      background: var(--navy-light);
+      border: 1px solid rgba(100,255,218,0.08);
+      border-radius: 8px;
+      padding: 28px 30px;
+      transition: border-color 0.2s;
+    }
+    .edu-card:hover { border-color: rgba(100,255,218,0.3); }
+    .edu-degree {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white-bright);
+      margin-bottom: 6px;
+    }
+    .edu-school { color: var(--green); font-size: 0.9rem; margin-bottom: 4px; }
+    .edu-year {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--slate);
+    }
+
+    /* ─── CONTACT ─────────────────────────────────────── */
+    #contact { text-align: center; }
+    #contact .section-heading { justify-content: center; }
+    #contact .section-heading .section-line { display: none; }
+    .contact-title {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 800;
+      color: var(--white-bright);
+      margin-bottom: 16px;
+    }
+    .contact-desc { max-width: 520px; margin: 0 auto 36px; font-size: 1rem; line-height: 1.7; }
+    .contact-cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 40px; }
+    .contact-card {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--navy-light);
+      border: 1px solid rgba(100,255,218,0.12);
+      border-radius: 8px;
+      padding: 16px 24px;
+      text-decoration: none;
+      color: var(--slate-light);
+      font-size: 0.9rem;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .contact-card:hover { border-color: var(--green); color: var(--green); transform: translateY(-3px); }
+    .contact-card-icon { font-size: 1.2rem; }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--slate);
+      border-top: 1px solid rgba(100,255,218,0.08);
+    }
+    footer a { color: var(--green); text-decoration: none; }
+
+    /* ─── SCROLLBAR ───────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-thumb { background: var(--slate); border-radius: 3px; }
+
+    /* ─── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      section { padding: 80px 24px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-img-wrap { display: none; }
+      .exp-tabs { flex-direction: column; }
+      .exp-companies { flex-direction: row; border-left: none; border-bottom: 2px solid rgba(100,255,218,0.15); overflow-x: auto; }
+      .exp-company-btn { border-left: none; border-bottom: 2px solid transparent; margin-left: 0; margin-bottom: -2px; }
+      .exp-company-btn.active { border-left-color: transparent; border-bottom-color: var(--green); }
+      .exp-details { padding: 20px 0 0; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─────────────────────────────────────────── -->
+<nav>
+  <a class="nav-logo" href="#hero">SM</a>
+  <ul class="nav-links">
+    <li><a href="#about"><span>01.</span>About</a></li>
+    <li><a href="#skills"><span>02.</span>Skills</a></li>
+    <li><a href="#experience"><span>03.</span>Experience</a></li>
+    <li><a href="#education"><span>04.</span>Education</a></li>
+    <li><a href="#contact"><span>05.</span>Contact</a></li>
+  </ul>
+  <a class="nav-resume" href="resume.pdf" target="_blank" download="Sibaditya_Maiti_Resume.pdf">Resume ↗</a>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────────────── -->
+<section id="hero">
+  <p class="hero-tag">Hi, my name is</p>
+  <h1 class="hero-name">Sibaditya Maiti.</h1>
+  <h2 class="hero-title">Senior Android Engineer & Tech Lead.</h2>
+  <p class="hero-desc">
+    I architect and deliver high-performance Android applications used by <strong style="color:var(--white)">tens of millions of users</strong> across North America. Currently leading Android development at <strong style="color:var(--green)">Bell Canada</strong>, building apps for My Bell, Virgin Plus, Lucky Mobile, and PC Mobile.
+  </p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-number">12+</span>
+      <span class="stat-label">Years Experience</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">8</span>
+      <span class="stat-label">Developers Led</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">100M+</span>
+      <span class="stat-label">Users Served</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">4</span>
+      <span class="stat-label">Major Apps Owned</span>
+    </div>
+  </div>
+  <div class="hero-ctas">
+    <a class="btn-primary" href="#experience">View My Work</a>
+    <a class="btn-secondary" href="#contact">Get In Touch</a>
+  </div>
+</section>
+
+<!-- ─── ABOUT ────────────────────────────────────────── -->
+<section id="about">
+  <div class="section-heading">
+    <h2><span>01.</span>About Me</h2>
+    <hr class="section-line">
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        I'm a Senior Android Engineer and Tech Lead based in <strong style="color:var(--white)">Milton, Canada</strong>, with over 12 years of experience building and scaling Android applications. I thrive at the intersection of clean architecture, exceptional performance, and user-centric design.
+      </p>
+      <p>
+        At Bell Canada, I lead a cross-functional team of 8 developers owning four production apps — <strong style="color:var(--white)">My Bell, Virgin Plus, My Lucky Mobile, and My PC Mobile</strong> — serving millions of Canadian subscribers. I drive architecture decisions, mentor engineers, and partner closely with Product, UX, and Backend teams to ship reliable, pixel-perfect experiences.
+      </p>
+      <p>
+        My journey spans top-tier companies including <strong style="color:var(--white)">BlackBerry, Paytm, Flipp, Aspiring Minds, and Samsung Research Institute</strong>. I've built everything from real-time messaging frameworks to e-commerce platforms, and I bring that breadth of experience to every problem I tackle.
+      </p>
+      <p>
+        When I'm not writing Kotlin, I'm staying sharp on modern Android trends like <a href="#">Jetpack Compose</a> and <a href="#">Kotlin Multiplatform</a> — always eager to apply cutting-edge solutions to real engineering challenges.
+      </p>
+      <div class="about-highlights">
+        <span class="highlight-tag">Kotlin &amp; Java</span>
+        <span class="highlight-tag">Jetpack Compose</span>
+        <span class="highlight-tag">MVVM / MVI</span>
+        <span class="highlight-tag">Team Leadership</span>
+        <span class="highlight-tag">TDD</span>
+        <span class="highlight-tag">CI/CD</span>
+        <span class="highlight-tag">Performance Optimization</span>
+        <span class="highlight-tag">Agile / Scrum</span>
+      </div>
+    </div>
+    <div class="about-img-wrap">
+      <div class="about-img-placeholder">
+        <img src="photo.jpg" alt="Sibaditya Maiti" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SKILLS ────────────────────────────────────────── -->
+<section id="skills">
+  <div class="section-heading">
+    <h2><span>02.</span>Technical Skills</h2>
+    <hr class="section-line">
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-card-icon">📱</div>
+      <h3>Languages</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Kotlin</span>
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">Kotlin Multiplatform</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">🏗️</div>
+      <h3>Android &amp; Jetpack</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Android SDK</span>
+        <span class="skill-tag">Jetpack Compose</span>
+        <span class="skill-tag">Jetpack Libraries</span>
+        <span class="skill-tag">Room</span>
+        <span class="skill-tag">ViewModel</span>
+        <span class="skill-tag">LiveData</span>
+        <span class="skill-tag">Navigation</span>
+        <span class="skill-tag">HILT</span>
+        <span class="skill-tag">Dagger</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">🧱</div>
+      <h3>Architecture</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">MVVM</span>
+        <span class="skill-tag">MVI</span>
+        <span class="skill-tag">MVP</span>
+        <span class="skill-tag">MVC</span>
+        <span class="skill-tag">Clean Architecture</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">⚡</div>
+      <h3>Async &amp; Reactive</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Kotlin Coroutines</span>
+        <span class="skill-tag">RxJava</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">🧪</div>
+      <h3>Testing</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Unit Testing</span>
+        <span class="skill-tag">Espresso</span>
+        <span class="skill-tag">Mockito</span>
+        <span class="skill-tag">TDD</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">📡</div>
+      <h3>Backend Integration</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Retrofit</span>
+        <span class="skill-tag">RESTful APIs</span>
+        <span class="skill-tag">WebSocket</span>
+        <span class="skill-tag">OAuth</span>
+        <span class="skill-tag">JSON</span>
+        <span class="skill-tag">XML</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">🔥</div>
+      <h3>Performance</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">App Performance Optimization</span>
+        <span class="skill-tag">LeakCanary</span>
+        <span class="skill-tag">Dynatrace</span>
+        <span class="skill-tag">Crashlytics</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">🔧</div>
+      <h3>Tools &amp; CI/CD</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Bitbucket</span>
+        <span class="skill-tag">CircleCI</span>
+        <span class="skill-tag">Jenkins</span>
+        <span class="skill-tag">Jira</span>
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Confluence</span>
+        <span class="skill-tag">Lint</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── EXPERIENCE ────────────────────────────────────── -->
+<section id="experience">
+  <div class="section-heading">
+    <h2><span>03.</span>Experience</h2>
+    <hr class="section-line">
+  </div>
+  <div class="exp-tabs">
+    <div class="exp-companies">
+      <button class="exp-company-btn active" onclick="showPanel('bell', this)">Bell Canada</button>
+      <button class="exp-company-btn" onclick="showPanel('flipp', this)">Flipp</button>
+      <button class="exp-company-btn" onclick="showPanel('bbm', this)">BBM</button>
+      <button class="exp-company-btn" onclick="showPanel('paytm', this)">Paytm</button>
+      <button class="exp-company-btn" onclick="showPanel('amcat', this)">AMCAT</button>
+      <button class="exp-company-btn" onclick="showPanel('samsung', this)">Samsung</button>
+    </div>
+    <div class="exp-details">
+
+      <div class="exp-panel active" id="panel-bell">
+        <div class="exp-role">Senior Android Engineer — <span>Tech Lead</span></div>
+        <div class="exp-meta">Bell Canada · Mississauga, Canada · April 2020 – Present</div>
+        <ul class="exp-list">
+          <li>Architect, develop, and maintain <strong>four high-performance Android applications</strong> — My Bell, Virgin Plus, My Lucky Mobile, and My PC Mobile — serving millions of Canadian customers using Kotlin, MVVM, Jetpack Compose, Kotlin Coroutines, and RxJava.</li>
+          <li>Lead a team of <strong>8 developers</strong> (including 3 offshore), owning features end-to-end through the full SDLC: from design and requirements through implementation, deployment, and ongoing support.</li>
+          <li>Optimize Android application performance using Dynatrace and LeakCanary; troubleshoot production issues ensuring high standards of reliability and usability across all four apps.</li>
+          <li>Collaborate with Product Managers, UX designers, and backend engineers to design APIs and deliver pixel-perfect UIs aligned with design specifications.</li>
+          <li>Write unit tests (Mockito, Espresso) and conduct thorough code reviews to maintain alignment with Android best practices; mentor junior developers and co-ops through pair programming.</li>
+          <li>Lead story structuring and requirement gathering sessions ensuring clear, actionable development goals across cross-functional stakeholder teams.</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Technologies:</strong> Kotlin · Kotlin Coroutines · Java · Android · Jetpack Compose · Jetpack Libraries · Room · MVVM · MVI · RxJava · HILT · Retrofit · Espresso · Mockito · Dynatrace · LeakCanary · Crashlytics · CircleCI · Git · Jira
+        </div>
+      </div>
+
+      <div class="exp-panel" id="panel-flipp">
+        <div class="exp-role">Senior Software Engineer @ <span>Flipp</span></div>
+        <div class="exp-meta">Flipp · Mississauga, Canada · March 2019 – April 2020</div>
+        <ul class="exp-list">
+          <li>Contributed to Discovery and Explore features of the Flipp app serving <strong>10+ million users</strong> across North America, building pixel-perfect UIs aligned with design specifications.</li>
+          <li>Spearheaded the migration from <strong>MVC to MVVM Architecture</strong> with RxJava and Kotlin, improving scalability and long-term maintainability.</li>
+          <li>Created an in-house Pattern Library enabling plug-and-play app components, reducing development time and enhancing reusability across the team.</li>
+          <li>Proposed and implemented location-based notifications and new flyer cross-browse logic, driving increased user engagement and revenue growth.</li>
+          <li>Refactored legacy code using TDD, Espresso, and Mockito; conducted code reviews and mentored a junior developer.</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Technologies:</strong> Java · Kotlin · Android · MVVM · RxJava · Espresso · Mockito · Retrofit · LeakCanary · CircleCI · Git · Jira
+        </div>
+      </div>
+
+      <div class="exp-panel" id="panel-bbm">
+        <div class="exp-role">Senior Software Engineer @ <span>BlackBerry Messenger</span></div>
+        <div class="exp-meta">BBM · Mississauga, Canada · July 2018 – March 2019</div>
+        <ul class="exp-list">
+          <li>Enhanced the messaging pillar of BBM serving <strong>~100 million users</strong>; led improvements to the Android communication framework, optimizing performance and functionality.</li>
+          <li>Implemented a non-persistent communication architecture for the Android Messenger, improving message handling efficiency and overall app performance.</li>
+          <li>Developed the user registration and login module from scratch; engineered notification systems for Android N and above.</li>
+          <li>Refactored legacy code using TDD and modern design patterns; mentored team members through pair programming and code reviews.</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Technologies:</strong> Java · Kotlin · Android · RxJava · Espresso · Retrofit · LeakCanary · Jenkins · Git
+        </div>
+      </div>
+
+      <div class="exp-panel" id="panel-paytm">
+        <div class="exp-role">Senior Software Engineer @ <span>Paytm</span></div>
+        <div class="exp-meta">Paytm · Noida, India · September 2016 – May 2018</div>
+        <ul class="exp-list">
+          <li>Developed the Return &amp; Replacement feature from scratch for Paytm's <strong>100 million daily active users</strong>; led the revamp of the Recharges &amp; Utilities section, scaling the app to handle millions of new users during demonetization.</li>
+          <li>Rewrote critical components (Order Detail, Home Screen) significantly improving Android application performance and UI for Paytm and Paytm Mall.</li>
+          <li>Partnered with Product Owners, UX designers, and backend teams to optimize API calls and implement new features; drove framework improvements reducing development time.</li>
+          <li>Managed and mentored a team of 2–3 junior developers; conducted code reviews and fostered technical growth.</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Technologies:</strong> Java · Kotlin · Android · RxJava · Espresso · Retrofit · LeakCanary · Jenkins · Bitbucket · Git
+        </div>
+      </div>
+
+      <div class="exp-panel" id="panel-amcat">
+        <div class="exp-role">Product Engineer II @ <span>Aspiring Minds (AMCAT)</span></div>
+        <div class="exp-meta">Aspiring Minds · Gurugram, India · February 2015 – September 2016</div>
+        <ul class="exp-list">
+          <li>Designed and developed MyAmcat from scratch — a platform serving <strong>100,000 daily active users</strong> enabling job applications, AMCAT test scheduling, and employability feedback.</li>
+          <li>Built Amtrack, an internal Android app for test center management with document upload, location tracking, and event management; delivered solutions across the full SDLC.</li>
+          <li>Integrated RESTful APIs (JSON, XML, OAuth) to ensure seamless backend service communication.</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Technologies:</strong> Java · Android · Retrofit · Volley · Git · Phabricator
+        </div>
+      </div>
+
+      <div class="exp-panel" id="panel-samsung">
+        <div class="exp-role">Software Engineer @ <span>Samsung Research Institute</span></div>
+        <div class="exp-meta">Samsung Research Institute · Noida, India · June 2013 – February 2015</div>
+        <ul class="exp-list">
+          <li>Engineered an RCS (Rich Communication Service) messaging client, optimizing transaction code and integrating legacy and IP messaging systems for cross-platform communication.</li>
+          <li>Contributed to the Commercial Mobile Alert System (CMAS) for U.S. emergency alert dissemination; developed Trash Box SMS feature enhancing user data retention and experience.</li>
+          <li>Placed through campus recruitment from NIT Raipur — one of India's top engineering institutes.</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Technologies:</strong> Java · Android · Perforce · Lint
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── EDUCATION ──────────────────────────────────────── -->
+<section id="education">
+  <div class="section-heading">
+    <h2><span>04.</span>Education</h2>
+    <hr class="section-line">
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-degree">Master of Computer Applications</div>
+      <div class="edu-school">National Institute of Technology Raipur</div>
+      <div class="edu-year">📍 India &nbsp;·&nbsp; 2010 – 2013</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">Bachelor of Computer Applications</div>
+      <div class="edu-school">Maharaja Sayajirao University of Baroda</div>
+      <div class="edu-year">📍 India &nbsp;·&nbsp; 2007 – 2010</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ────────────────────────────────────────── -->
+<section id="contact">
+  <div class="section-heading">
+    <h2><span>05.</span>Get In Touch</h2>
+  </div>
+  <p class="contact-title">Let's Work Together</p>
+  <p class="contact-desc">
+    I'm open to new opportunities, collaborations, and conversations. Whether you have a role in mind or just want to connect — my inbox is always open.
+  </p>
+  <a class="btn-primary" href="mailto:sibaditya.maiti@gmail.com" style="display:inline-block">Say Hello ✉️</a>
+  <div class="contact-cards">
+    <a class="contact-card" href="https://www.linkedin.com/in/sibadityamaiti" target="_blank">
+      <span class="contact-card-icon">💼</span>
+      linkedin.com/in/sibadityamaiti
+    </a>
+    <a class="contact-card" href="mailto:sibaditya.maiti@gmail.com">
+      <span class="contact-card-icon">✉️</span>
+      sibaditya.maiti@gmail.com
+    </a>
+    <a class="contact-card" href="tel:+14164090835">
+      <span class="contact-card-icon">📞</span>
+      +1 (416) 409-0835
+    </a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────────── -->
+<footer>
+  <p>Designed &amp; Built by <a href="#hero">Sibaditya Maiti</a> · Milton, Canada</p>
+  <p style="margin-top:8px; font-size:0.72rem; opacity:0.6;">Open to Senior Android Engineering &amp; Tech Lead roles</p>
+</footer>
+
+<script>
+  function showPanel(id, btn) {
+    document.querySelectorAll('.exp-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.exp-company-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // Nav shadow on scroll
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.boxShadow =
+      window.scrollY > 20 ? '0 4px 30px rgba(0,0,0,0.4)' : 'none';
+  });
+</script>
+
+</body>
+</html>
