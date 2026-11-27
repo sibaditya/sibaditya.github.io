@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sibaditya Maiti — Senior Android Engineer & Tech Lead</title>
+  <title>Sibaditya Maiti — Android Enthusiast | Entrepreneur</title>
+  <meta name="description" content="Sibaditya Maiti: Android enthusiast and entrepreneur with 12+ years shipping apps for tens of millions of users. Founder of Hazelcrow, a solutions lab for apps and websites. Builder of Docsmith and Satsang Canada.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -265,6 +266,32 @@
       border-radius: 3px;
     }
 
+    /* ─── PROJECTS ───────────────────────────────────── */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--navy-light);
+      border: 1px solid rgba(100,255,218,0.08);
+      border-radius: 8px;
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .project-card:hover { border-color: rgba(100,255,218,0.3); transform: translateY(-4px); }
+    .project-type {
+      color: var(--green);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      margin-bottom: 12px;
+    }
+    .project-card h3 {
+      color: var(--white-bright);
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+    .project-card p { line-height: 1.7; margin-bottom: 20px; }
+    .project-platforms { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+
     /* ─── EXPERIENCE ──────────────────────────────────── */
     .exp-tabs { display: flex; }
     .exp-companies {
@@ -317,6 +344,7 @@
       position: absolute; left: 0;
       color: var(--green);
     }
+    .exp-list li strong { color: var(--white); font-weight: 600; }
     .exp-tech {
       margin-top: 20px;
       font-family: var(--font-mono);
@@ -386,6 +414,64 @@
     }
     footer a { color: var(--green); text-decoration: none; }
 
+
+    /* ─── PROFESSIONAL REFINEMENTS ────────────────────── */
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background:
+        radial-gradient(900px 500px at 85% -10%, rgba(100,255,218,0.07), transparent 60%),
+        radial-gradient(700px 400px at -10% 40%, rgba(100,138,255,0.06), transparent 60%);
+    }
+    .hero-lab {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-top: 26px; padding: 8px 16px;
+      border: 1px solid rgba(100,255,218,0.2); border-radius: 30px;
+      background: var(--green-tint);
+      font-family: var(--font-mono); font-size: 0.8rem; color: var(--slate-light);
+      text-decoration: none; width: fit-content;
+      transition: border-color 0.2s;
+    }
+    .hero-lab:hover { border-color: var(--green); }
+    .hero-lab strong { color: var(--green); font-weight: 500; }
+    .hero-lab .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); }
+
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .service-card {
+      background: var(--navy-light); border: 1px solid rgba(100,255,218,0.08);
+      border-radius: 8px; padding: 28px; transition: border-color 0.2s, transform 0.2s;
+    }
+    .service-card:hover { border-color: rgba(100,255,218,0.3); transform: translateY(-4px); }
+    .service-num { font-family: var(--font-mono); color: var(--green); font-size: 0.8rem; margin-bottom: 14px; display: block; }
+    .service-card h3 { color: var(--white-bright); font-size: 1.1rem; margin-bottom: 10px; }
+    .service-card p { font-size: 0.93rem; line-height: 1.65; }
+
+    .projects-grid.featured { grid-template-columns: 1fr; gap: 28px; }
+    .project-card.featured { padding: 34px 36px; }
+    .project-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 4px; }
+    .project-status {
+      font-family: var(--font-mono); font-size: 0.72rem; color: var(--green);
+      border: 1px solid rgba(100,255,218,0.25); background: var(--green-tint);
+      padding: 3px 12px; border-radius: 30px; white-space: nowrap;
+    }
+    .project-lead { color: var(--slate-light); margin-bottom: 18px; }
+    .project-points { list-style: none; margin-bottom: 22px; }
+    .project-points li { position: relative; padding-left: 22px; margin-bottom: 8px; font-size: 0.93rem; line-height: 1.6; }
+    .project-points li::before { content: '▹'; position: absolute; left: 0; color: var(--green); }
+    .project-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .project-links a {
+      font-family: var(--font-mono); font-size: 0.78rem; color: var(--green);
+      border: 1px solid rgba(100,255,218,0.3); padding: 6px 14px; border-radius: 4px;
+      text-decoration: none; transition: background 0.2s;
+    }
+    .project-links a:hover { background: var(--green-tint); }
+    .skill-tag.link { text-decoration: none; }
+    a.skill-tag:hover { border-color: var(--green); color: var(--green); }
+    .exp-role-sub { color: var(--slate); font-weight: 500; font-size: 0.9rem; }
+    .skill-card.wide { grid-column: 1 / -1; }
+    footer .foot-links { margin-top: 8px; }
+    footer .foot-links a { margin: 0 10px; }
+    :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+
     /* ─── SCROLLBAR ───────────────────────────────────── */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--navy); }
@@ -393,6 +479,7 @@
 
     /* ─── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 768px) {
+      .project-card.featured { padding: 26px 22px; }
       nav { padding: 16px 24px; }
       .nav-links { display: none; }
       section { padding: 80px 24px; }
@@ -415,10 +502,12 @@
   <a class="nav-logo" href="#hero">SM</a>
   <ul class="nav-links">
     <li><a href="#about"><span>01.</span>About</a></li>
-    <li><a href="#skills"><span>02.</span>Skills</a></li>
-    <li><a href="#experience"><span>03.</span>Experience</a></li>
-    <li><a href="#education"><span>04.</span>Education</a></li>
-    <li><a href="#contact"><span>05.</span>Contact</a></li>
+    <li><a href="#experience"><span>02.</span>Experience</a></li>
+    <li><a href="#services"><span>03.</span>What I Do</a></li>
+    <li><a href="#projects"><span>04.</span>Projects</a></li>
+    <li><a href="#skills"><span>05.</span>Skills</a></li>
+    <li><a href="#education"><span>06.</span>Education</a></li>
+    <li><a href="#contact"><span>07.</span>Contact</a></li>
   </ul>
   <a class="nav-resume" href="resume.pdf" target="_blank" download="Sibaditya_Maiti_Resume.pdf">Resume ↗</a>
 </nav>
@@ -427,30 +516,19 @@
 <section id="hero">
   <p class="hero-tag">Hi, my name is</p>
   <h1 class="hero-name">Sibaditya Maiti.</h1>
-  <h2 class="hero-title">Senior Android Engineer & Tech Lead.</h2>
+  <h2 class="hero-title">Android Enthusiast | Entrepreneur.</h2>
   <p class="hero-desc">
-    I architect and deliver high-performance Android applications used by <strong style="color:var(--white)">tens of millions of users</strong> across North America. Currently leading Android development at <strong style="color:var(--green)">Bell Canada</strong>, building apps for My Bell, Virgin Plus, Lucky Mobile, and PC Mobile.
+    12+ years shipping apps on Google Play for <strong style="color:var(--white)">tens of millions of users</strong> across fintech, telecom and consumer platforms. I build mobile products that scale: at <strong style="color:var(--green)">Bell Canada</strong> I lead 8 engineers across four production apps, and I run <strong style="color:var(--white)">Hazelcrow</strong> and ship my own products on the side.
   </p>
+  <a class="hero-lab" href="https://hazelcrow.com" target="_blank" rel="noopener"><span class="dot"></span><span><strong>Hazelcrow</strong> — my solutions lab for apps and websites ↗</span></a>
   <div class="hero-stats">
-    <div class="stat">
-      <span class="stat-number">12+</span>
-      <span class="stat-label">Years Experience</span>
-    </div>
-    <div class="stat">
-      <span class="stat-number">8</span>
-      <span class="stat-label">Developers Led</span>
-    </div>
-    <div class="stat">
-      <span class="stat-number">100M+</span>
-      <span class="stat-label">Users Served</span>
-    </div>
-    <div class="stat">
-      <span class="stat-number">4</span>
-      <span class="stat-label">Major Apps Owned</span>
-    </div>
+    <div class="stat"><span class="stat-number">12+</span><span class="stat-label">Years Experience</span></div>
+    <div class="stat"><span class="stat-number">8</span><span class="stat-label">Engineers Led</span></div>
+    <div class="stat"><span class="stat-number">100M+</span><span class="stat-label">Users Served</span></div>
+    <div class="stat"><span class="stat-number">6</span><span class="stat-label">Apps Shipped &amp; Owned</span></div>
   </div>
   <div class="hero-ctas">
-    <a class="btn-primary" href="#experience">View My Work</a>
+    <a class="btn-primary" href="#projects">View My Work</a>
     <a class="btn-secondary" href="#contact">Get In Touch</a>
   </div>
 </section>
@@ -464,26 +542,26 @@
   <div class="about-grid">
     <div class="about-text">
       <p>
-        I'm a Senior Android Engineer and Tech Lead based in <strong style="color:var(--white)">Milton, Canada</strong>, with over 12 years of experience building and scaling Android applications. I thrive at the intersection of clean architecture, exceptional performance, and user-centric design.
+        I'm an Android engineer and tech lead based in <strong style="color:var(--white)">Milton, Canada</strong>. I've spent 12+ years building and shipping high-performance apps on Google Play, and I'm hands-on in Kotlin, Jetpack Compose, Coroutines and Flow, with Clean Architecture (MVVM/MVI) and strong testing habits.
       </p>
       <p>
-        At Bell Canada, I lead a cross-functional team of 8 developers owning four production apps — <strong style="color:var(--white)">My Bell, Virgin Plus, My Lucky Mobile, and My PC Mobile</strong> — serving millions of Canadian subscribers. I drive architecture decisions, mentor engineers, and partner closely with Product, UX, and Backend teams to ship reliable, pixel-perfect experiences.
+        At Bell Canada I own the Android roadmap for <strong style="color:var(--white)">My Bell, Virgin Plus, My Lucky Mobile and My PC Mobile</strong>, and lead a team of 8 engineers while staying in the code: building features, reviewing PRs and setting Android standards.
       </p>
       <p>
-        My journey spans top-tier companies including <strong style="color:var(--white)">BlackBerry, Paytm, Flipp, Aspiring Minds, and Samsung Research Institute</strong>. I've built everything from real-time messaging frameworks to e-commerce platforms, and I bring that breadth of experience to every problem I tackle.
+        Beyond my day job I run <a href="https://hazelcrow.com" target="_blank" rel="noopener">Hazelcrow</a>, a solutions lab where I design, build and publish my own apps and help others ship theirs. That means <strong style="color:var(--white)">Docsmith</strong>, a document scanner and PDF toolkit, and the <strong style="color:var(--white)">Satsang Canada</strong> apps and website. I handle the whole path to market: Play Billing, AdMob, ML Kit, FCM, localization and Play Console releases.
       </p>
       <p>
-        When I'm not writing Kotlin, I'm staying sharp on modern Android trends like <a href="#">Jetpack Compose</a> and <a href="#">Kotlin Multiplatform</a> — always eager to apply cutting-edge solutions to real engineering challenges.
+        I document decisions clearly and use spec-driven development with modern AI coding assistants and LLM tooling to move faster without lowering quality. Earlier roles include BlackBerry Messenger, Paytm, Flipp, Aspiring Minds and Samsung Research Institute.
       </p>
       <div class="about-highlights">
-        <span class="highlight-tag">Kotlin &amp; Java</span>
+        <span class="highlight-tag">Kotlin &amp; KMP</span>
         <span class="highlight-tag">Jetpack Compose</span>
-        <span class="highlight-tag">MVVM / MVI</span>
+        <span class="highlight-tag">Clean Architecture</span>
         <span class="highlight-tag">Team Leadership</span>
+        <span class="highlight-tag">Google Play Releases</span>
+        <span class="highlight-tag">AI-Assisted Development</span>
         <span class="highlight-tag">TDD</span>
         <span class="highlight-tag">CI/CD</span>
-        <span class="highlight-tag">Performance Optimization</span>
-        <span class="highlight-tag">Agile / Scrum</span>
       </div>
     </div>
     <div class="about-img-wrap">
@@ -494,10 +572,248 @@
   </div>
 </section>
 
+<!-- ─── EXPERIENCE ────────────────────────────────────── -->
+<section id="experience">
+  <div class="section-heading">
+    <h2><span>02.</span>Experience</h2>
+    <hr class="section-line">
+  </div>
+  <div class="exp-tabs">
+    <div class="exp-companies">
+      <button class="exp-company-btn active" onclick="showPanel('bell', this)">Bell Canada</button>
+      <button class="exp-company-btn" onclick="showPanel('flipp', this)">Flipp</button>
+      <button class="exp-company-btn" onclick="showPanel('bbm', this)">BBM</button>
+      <button class="exp-company-btn" onclick="showPanel('paytm', this)">Paytm</button>
+      <button class="exp-company-btn" onclick="showPanel('amcat', this)">AMCAT</button>
+      <button class="exp-company-btn" onclick="showPanel('samsung', this)">Samsung</button>
+    </div>
+    <div class="exp-details">
+
+      <div class="exp-panel active" id="panel-bell">
+        <div class="exp-role">Sr Software Engineer — <span>Tech Lead</span></div>
+        <div class="exp-meta">Bell Canada · Mississauga, Canada · April 2020 – Present</div>
+        <ul class="exp-list">
+          <li><strong>Team Leadership:</strong> Managed a team of 8 developers, including 3 offshore members, ensuring seamless collaboration across geographies and time zones.</li>
+          <li><strong>End-to-End Development:</strong> Led the development and maintenance of four Bell mobile applications: My Bell, Virgin Plus, My Lucky Mobile, and My PC Mobile.</li>
+          <li><strong>Feature Implementation:</strong> Directed the implementation of new features and maintained existing functionality across all apps, aligning with business and user needs.</li>
+          <li><strong>Story Structuring &amp; Requirements:</strong> Led story structuring and requirement gathering sessions to ensure clear and actionable development goals.</li>
+          <li><strong>Mentorship &amp; Collaboration:</strong> Mentored junior developers and co-op team members, fostering growth and enhancing team performance.</li>
+          <li><strong>API Design:</strong> Collaborated with backend teams to design APIs tailored to product requirements, ensuring optimal integration and functionality.</li>
+          <li><strong>Legacy Code Expertise:</strong> Navigated and enhanced large legacy codebases, applying analytical skills to improve system efficiency and performance.</li>
+          <li><strong>Technical Support:</strong> Unblocked team members through pair programming and provided hands-on guidance during the project lifecycle.</li>
+          <li><strong>Code Quality &amp; Reviews:</strong> Conducted code reviews to maintain high-quality standards and improve team productivity.</li>
+          <li><strong>Cross-Functional Collaboration:</strong> Worked closely with Product Owners, UX designers, and backend teams to deliver user-centric solutions.</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Technologies &amp; Tools:</strong> Android · Kotlin · Kotlin Multiplatform · React Native · Web Socket · MVI · MVVM · RxJava · Espresso · Mockito · Dynatrace · Omniture · InVision · Git · Retrofit · Crashlytics · LeakCanary · Jetpack Compose · Lint · CircleCI · Jira
+        </div>
+      </div>
+
+      <div class="exp-panel" id="panel-flipp">
+        <div class="exp-role">Senior Software Engineer @ <span>Flipp</span></div>
+        <div class="exp-meta">Flipp · Mississauga, Canada · March 2019 – April 2020</div>
+        <ul class="exp-list">
+          <li><strong>User-Centric Development:</strong> Contributed to the Discovery and Explore features of the Flipp app, serving over 10 million users across North America.</li>
+          <li><strong>Framework Improvements:</strong> Created and implemented an in-house Pattern Library, enabling plug-and-play app components to streamline development and enhance maintainability.</li>
+          <li><strong>Architectural Enhancements:</strong> Spearheaded the upgrade of the existing MVC architecture to MVVM, improving scalability and code organization.</li>
+          <li><strong>Revenue-Driven Features:</strong> Proposed and implemented location-based notifications and a new flyers cross-browse logic, driving increased user engagement and revenue growth.</li>
+          <li><strong>Code Refactoring:</strong> Refactored legacy code using Test-Driven Development (TDD) and multiple design patterns, improving performance and maintainability.</li>
+          <li><strong>Cross-Functional Collaboration:</strong> Worked closely with Product Owners, UX designers, and backend teams to design and deliver optimized features.</li>
+          <li><strong>Team Leadership:</strong> Conducted code reviews and coached a junior software developer, fostering skill development and improving code quality.</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Technologies &amp; Tools:</strong> Java · Android · Kotlin · MVVM · RxJava · Espresso · Apache Avro · InVision · Git · Retrofit · Crashlytics · LeakCanary · Lint · CircleCI (CI/CD) · Jira
+        </div>
+      </div>
+
+      <div class="exp-panel" id="panel-bbm">
+        <div class="exp-role">Senior Software Engineer @ <span>BlackBerry Messenger</span></div>
+        <div class="exp-meta">BBM · Mississauga, Canada · July 2018 – March 2019</div>
+        <ul class="exp-list">
+          <li><strong>Messaging Pillar Focus:</strong> Contributed to the messaging pillar of BBM, serving around 100 million users, enhancing the app's communication capabilities.</li>
+          <li><strong>Framework Enhancements:</strong> Led efforts to improve the BBM Android communication framework, optimizing its performance and functionality.</li>
+          <li><strong>Non-Persistent Communication Architecture:</strong> Implemented a non-persistent communication architecture for BBM Android Messenger, improving message handling and efficiency.</li>
+          <li><strong>New Features Development:</strong> Developed the new user registration and login module from scratch, enhancing security and streamlining the user experience.</li>
+          <li><strong>Notification System Implementation:</strong> Engineered new notification systems for Android N and above, enhancing user engagement and system reliability.</li>
+          <li><strong>Code Refactoring:</strong> Refactored legacy code using Test-Driven Development (TDD) and modern design patterns, ensuring improved performance and maintainability.</li>
+          <li><strong>Cross-Functional Collaboration:</strong> Collaborated closely with Product Owners, UX designers, and backend teams to design and implement optimal features.</li>
+          <li><strong>Team Leadership &amp; Mentorship:</strong> Performed code reviews and mentored team members in a pair programming environment.</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Technologies &amp; Tools:</strong> Java · Android · Kotlin · RxJava · Espresso · Spark · Git · Retrofit · Crashlytics · LeakCanary · Lint · Jenkins · Zeplin
+        </div>
+      </div>
+
+      <div class="exp-panel" id="panel-paytm">
+        <div class="exp-role">Senior Software Engineer @ <span>Paytm</span></div>
+        <div class="exp-meta">Paytm · Noida, India · September 2016 – May 2018</div>
+        <ul class="exp-list">
+          <li><strong>Team Leadership &amp; Mentorship:</strong> Managed and mentored a team of 2–3 junior developers and co-ops, conducting peer code reviews and fostering technical growth.</li>
+          <li><strong>Feature Development:</strong> Spearheaded the development of the Return and Replacement feature from scratch, streamlining processes and enhancing user experience for Paytm's 100 million daily active users.</li>
+          <li><strong>Scalable Solutions:</strong> Led the revamp of the Recharges and Utilities section during demonetization, scaling the app to handle millions of new users and ensuring seamless operations.</li>
+          <li><strong>UI/UX Optimization:</strong> Partnered with Product Owners, UX designers, and backend developers to redesign app interfaces, optimize API calls, and implement new features for a superior user experience.</li>
+          <li><strong>Performance Enhancements:</strong> Rewrote critical components such as the Order Detail and Home Screen, significantly improving performance and UI for Paytm and Paytm Mall Android applications.</li>
+          <li><strong>Marketplace Revamp:</strong> Spearheaded the revamp of Paytm Marketplace, driving substantial user experience enhancements for over 100 million daily users.</li>
+          <li><strong>Framework Improvements:</strong> Drove improvements to the development framework, reducing development time and enhancing code maintainability.</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Technologies &amp; Tools:</strong> Java · Android · Kotlin · RxJava · Espresso · Git · Volley · Hansel · Crashlytics · Butterknife · LeakCanary · Lint · Jenkins · Zeplin · Bitbucket · Kira
+        </div>
+      </div>
+
+      <div class="exp-panel" id="panel-amcat">
+        <div class="exp-role">Product Engineer II @ <span>Aspiring Minds (AMCAT)</span></div>
+        <div class="exp-meta">Aspiring Minds · Gurugram, India · February 2015 – September 2016</div>
+        <ul class="exp-list">
+          <li><strong>Flagship Product Development:</strong> Designed and developed MyAmcat, a platform serving 100,000 daily active users. It lets job seekers apply for jobs, schedule AMCAT tests, receive employability feedback, and engage in discussions. Led development of the portal from scratch, focusing on seamless user experience and robust backend integration.</li>
+          <li><strong>Internal Application Development:</strong> Developed Amtrack, an internal app that helps TSEs and Assessors monitor and manage test centers for AMCAT and NSDC events, with document upload, location tracking and event management that optimized administrative efficiency.</li>
+          <li><strong>End-to-End Development:</strong> Involved in the entire software development lifecycle, including analysis, design, coding, testing and implementation, delivering solutions that meet both user and business needs.</li>
+          <li><strong>Web Service Integration:</strong> Integrated web services (RESTful APIs, JSON, XML, OAuth), ensuring smooth communication between client and server.</li>
+          <li><strong>Technical Skills:</strong> Hands-on experience with Android SDK, Git, Volley, Retrofit, Crashlytics, LeakCanary and Lint.</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Technologies &amp; Tools:</strong> Android · Java · Git · Volley · Retrofit · Crashlytics · LeakCanary · Lint · Phabricator
+        </div>
+      </div>
+
+      <div class="exp-panel" id="panel-samsung">
+        <div class="exp-role">Engineer @ <span>Samsung Research Institute</span></div>
+        <div class="exp-meta">Samsung Research Institute · Noida, India · June 2013 – February 2015</div>
+        <ul class="exp-list">
+          <li><strong>Rich Communication Service (RCS) Development:</strong> Engineered an RCS messaging client, optimizing transaction code and integrating legacy and IP messaging systems, enhancing protocol efficiency for seamless cross-platform communication.</li>
+          <li><strong>Emergency Alert Systems:</strong> Contributed to the Commercial Mobile Alert System (CMAS), improving emergency alert dissemination across mobile devices in the United States.</li>
+          <li><strong>Trash Box Feature:</strong> Developed the Trash Box feature, enabling users to recover, access and manage deleted SMS, significantly enhancing data retention and user experience.</li>
+          <li><strong>Messaging Protocol Optimization:</strong> Optimized messaging protocols, ensuring reliable and seamless communication across diverse platforms.</li>
+          <li><strong>Cross-Functional Collaboration:</strong> Partnered with cross-functional teams to streamline development processes, resulting in faster product iterations and improved code quality.</li>
+          <li><strong>System Reliability:</strong> Enhanced overall system reliability and performance through rigorous testing and protocol refinement.</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Technologies &amp; Tools:</strong> Android · Java · Perforce · Lint · PLM
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ──────────────────────────────────────── -->
+<section id="services">
+  <div class="section-heading">
+    <h2><span>03.</span>What I Do</h2>
+    <hr class="section-line">
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-num">01</span>
+      <h3>Mobile App Development</h3>
+      <p>Production Android apps in Kotlin and Jetpack Compose, built on Clean Architecture, with the testing and performance work that keeps them reliable at scale.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">02</span>
+      <h3>Cross-Platform with KMP</h3>
+      <p>Shared business logic, storage and state in Kotlin Multiplatform so an iOS target can reuse the same code as Android.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">03</span>
+      <h3>Websites &amp; Web Apps</h3>
+      <p>Website builds and revamps that line up with the mobile experience, so a product feels like one connected thing across web and mobile.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">04</span>
+      <h3>Launch &amp; Monetization</h3>
+      <p>Play Console releases, signed AAB builds, Play Billing, AdMob with UMP consent, FCM notifications and localization, from first build to store listing.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">05</span>
+      <h3>Technical Leadership</h3>
+      <p>Roadmaps, architecture decisions, code reviews, mentoring and release readiness, drawn from leading 8 engineers across four production apps.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">06</span>
+      <h3>AI-Assisted Delivery</h3>
+      <p>Spec-driven development with modern AI coding assistants and LLM tooling, with every AI-generated change reviewed and tested before it ships.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROJECTS ──────────────────────────────────────── -->
+<section id="projects">
+  <div class="section-heading">
+    <h2><span>04.</span>Projects &amp; Hazelcrow</h2>
+    <hr class="section-line">
+  </div>
+  <div class="projects-grid featured">
+
+    <article class="project-card featured">
+      <div class="project-head">
+        <span class="project-type">Personal product · Android</span>
+        <span class="project-status">Live on Google Play</span>
+      </div>
+      <h3>Docsmith: Document Scanner &amp; PDF Toolkit</h3>
+      <p class="project-lead">A free Android app to scan, sign, fill in, mark up, split and merge documents. No account, no cloud: files stay on the phone.</p>
+      <ul class="project-points">
+        <li>Scanning with Google ML Kit and a custom perspective-correction editor for adjusting page corners; OCR text extraction.</li>
+        <li>PDF merge and split, page reordering, form filling, annotations and handwritten signatures. Signed pages keep an unsigned copy so signatures can be removed or redone.</li>
+        <li>Shared logic, storage and state in a Kotlin Multiplatform module (MVI stores, Okio file I/O) so an iOS target can reuse the same code.</li>
+        <li>Monetized with AdMob (interstitial, rewarded, native), an ad-free purchase through Play Billing and Google UMP consent for GDPR. Interstitials are limited by a free-share allowance and cooldown.</li>
+        <li>Localized into English, Spanish, French and Hindi. Handled release engineering: Gradle/AGP/Kotlin/Compose upgrades, R8 shrinking, signed AAB builds and versioned releases.</li>
+      </ul>
+      <div class="project-platforms" aria-label="Technologies">
+        <span class="skill-tag">Kotlin</span><span class="skill-tag">KMP</span><span class="skill-tag">Jetpack Compose</span><span class="skill-tag">Material 3</span><span class="skill-tag">Coroutines / Flow</span><span class="skill-tag">MVI</span><span class="skill-tag">ML Kit</span><span class="skill-tag">Play Billing</span><span class="skill-tag">AdMob + UMP</span>
+      </div>
+      <div class="project-links">
+        <a href="https://play.google.com/store/apps/details?id=com.docsmith.app" target="_blank" rel="noopener">Google Play ↗</a>
+        <a href="https://hazelcrow.com/docsmith/" target="_blank" rel="noopener">Product page ↗</a>
+      </div>
+    </article>
+
+    <article class="project-card featured">
+      <div class="project-head">
+        <span class="project-type">Community project · Web + Android + iOS</span>
+        <span class="project-status">Website live · Android live · iOS in progress</span>
+      </div>
+      <h3>Satsang Canada: Community App &amp; Website</h3>
+      <p class="project-lead">I revamped and launched the Satsang Canada website and build its mobile apps, one connected experience across web, Android and iOS.</p>
+      <ul class="project-points">
+        <li>Revamped and launched the organization's website at satsangcanada.com.</li>
+        <li>Mobile apps built with Kotlin Multiplatform. The Android app is published on Google Play and the iOS version is in progress.</li>
+        <li>Localized in English, Bengali, French and Hindi, with prayer-time reminders as local scheduled notifications that work offline, with region-specific times.</li>
+        <li>Firebase Cloud Messaging with topic-based targeting, so non-technical admins can send announcements from the Firebase Console.</li>
+        <li>In-app Notifications screen that keeps messages for 30 days, with tappable phone numbers, addresses, links and emails.</li>
+        <li>Releases managed through Google Play Console, including store listing release notes and update submissions for review.</li>
+      </ul>
+      <div class="project-platforms" aria-label="Platforms">
+        <span class="skill-tag">Web</span><span class="skill-tag">Android</span><span class="skill-tag">iOS</span><span class="skill-tag">Kotlin Multiplatform</span><span class="skill-tag">Firebase Cloud Messaging</span><span class="skill-tag">Play Console</span>
+      </div>
+      <div class="project-links">
+        <a href="https://satsangcanada.com" target="_blank" rel="noopener">satsangcanada.com ↗</a>
+      </div>
+    </article>
+
+    <article class="project-card featured">
+      <div class="project-head">
+        <span class="project-type">My solutions lab</span>
+        <span class="project-status">Built in Canada</span>
+      </div>
+      <h3>Hazelcrow</h3>
+      <p class="project-lead">"Crows solve puzzles. We solve yours." A solutions lab for mobile apps, websites and the systems behind them.</p>
+      <ul class="project-points">
+        <li>Services: mobile apps, websites and web apps, backends and APIs, product design, cloud and automation, and AI features.</li>
+        <li>Way of working: understand the puzzle, try small things, build it properly, launch and look after it.</li>
+        <li>Home of my own products, including Docsmith.</li>
+      </ul>
+      <div class="project-links">
+        <a href="https://hazelcrow.com" target="_blank" rel="noopener">hazelcrow.com ↗</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
 <!-- ─── SKILLS ────────────────────────────────────────── -->
 <section id="skills">
   <div class="section-heading">
-    <h2><span>02.</span>Technical Skills</h2>
+    <h2><span>05.</span>Technical Skills</h2>
     <hr class="section-line">
   </div>
   <div class="skills-grid">
@@ -516,13 +832,14 @@
       <div class="skill-tags">
         <span class="skill-tag">Android SDK</span>
         <span class="skill-tag">Jetpack Compose</span>
-        <span class="skill-tag">Jetpack Libraries</span>
+        <span class="skill-tag">Material Design</span>
         <span class="skill-tag">Room</span>
         <span class="skill-tag">ViewModel</span>
         <span class="skill-tag">LiveData</span>
         <span class="skill-tag">Navigation</span>
-        <span class="skill-tag">HILT</span>
+        <span class="skill-tag">Hilt</span>
         <span class="skill-tag">Dagger</span>
+        <span class="skill-tag">Gradle</span>
       </div>
     </div>
     <div class="skill-card">
@@ -534,6 +851,7 @@
         <span class="skill-tag">MVP</span>
         <span class="skill-tag">MVC</span>
         <span class="skill-tag">Clean Architecture</span>
+        <span class="skill-tag">Repository Pattern</span>
       </div>
     </div>
     <div class="skill-card">
@@ -541,6 +859,7 @@
       <h3>Async &amp; Reactive</h3>
       <div class="skill-tags">
         <span class="skill-tag">Kotlin Coroutines</span>
+        <span class="skill-tag">Kotlin Flow</span>
         <span class="skill-tag">RxJava</span>
       </div>
     </div>
@@ -548,32 +867,54 @@
       <div class="skill-card-icon">🧪</div>
       <h3>Testing</h3>
       <div class="skill-tags">
-        <span class="skill-tag">Unit Testing</span>
+        <span class="skill-tag">JUnit</span>
         <span class="skill-tag">Espresso</span>
         <span class="skill-tag">Mockito</span>
+        <span class="skill-tag">MockK</span>
+        <span class="skill-tag">UI Test Automation</span>
         <span class="skill-tag">TDD</span>
       </div>
     </div>
     <div class="skill-card">
+      <div class="skill-card-icon">🚀</div>
+      <h3>Google Play &amp; Release</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Play Console</span>
+        <span class="skill-tag">Testing Tracks</span>
+        <span class="skill-tag">Signed AAB</span>
+        <span class="skill-tag">Play Billing</span>
+        <span class="skill-tag">Stripe</span>
+        <span class="skill-tag">PayPal</span>
+        <span class="skill-tag">AdMob + UMP</span>
+        <span class="skill-tag">Crashlytics</span>
+        <span class="skill-tag">FCM</span>
+        <span class="skill-tag">ML Kit</span>
+        <span class="skill-tag">Localization (EN, FR, ES, BN, HI)</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">🔐</div>
+      <h3>Security</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Certificate Pinning</span>
+        <span class="skill-tag">Biometric Authentication</span>
+        <span class="skill-tag">Secure Storage</span>
+        <span class="skill-tag">OAuth</span>
+        <span class="skill-tag">Session Management</span>
+      </div>
+    </div>
+    <div class="skill-card">
       <div class="skill-card-icon">📡</div>
-      <h3>Backend Integration</h3>
+      <h3>Backend &amp; Performance</h3>
       <div class="skill-tags">
         <span class="skill-tag">Retrofit</span>
         <span class="skill-tag">RESTful APIs</span>
         <span class="skill-tag">WebSocket</span>
-        <span class="skill-tag">OAuth</span>
         <span class="skill-tag">JSON</span>
         <span class="skill-tag">XML</span>
-      </div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-card-icon">🔥</div>
-      <h3>Performance</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">App Performance Optimization</span>
         <span class="skill-tag">LeakCanary</span>
         <span class="skill-tag">Dynatrace</span>
-        <span class="skill-tag">Crashlytics</span>
+        <span class="skill-tag">Performance Optimization</span>
       </div>
     </div>
     <div class="skill-card">
@@ -581,120 +922,26 @@
       <h3>Tools &amp; CI/CD</h3>
       <div class="skill-tags">
         <span class="skill-tag">Git</span>
-        <span class="skill-tag">Bitbucket</span>
+        <span class="skill-tag">GitHub Actions</span>
         <span class="skill-tag">CircleCI</span>
+        <span class="skill-tag">Bitrise</span>
         <span class="skill-tag">Jenkins</span>
         <span class="skill-tag">Jira</span>
         <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Bitbucket</span>
         <span class="skill-tag">Confluence</span>
-        <span class="skill-tag">Lint</span>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ─── EXPERIENCE ────────────────────────────────────── -->
-<section id="experience">
-  <div class="section-heading">
-    <h2><span>03.</span>Experience</h2>
-    <hr class="section-line">
-  </div>
-  <div class="exp-tabs">
-    <div class="exp-companies">
-      <button class="exp-company-btn active" onclick="showPanel('bell', this)">Bell Canada</button>
-      <button class="exp-company-btn" onclick="showPanel('flipp', this)">Flipp</button>
-      <button class="exp-company-btn" onclick="showPanel('bbm', this)">BBM</button>
-      <button class="exp-company-btn" onclick="showPanel('paytm', this)">Paytm</button>
-      <button class="exp-company-btn" onclick="showPanel('amcat', this)">AMCAT</button>
-      <button class="exp-company-btn" onclick="showPanel('samsung', this)">Samsung</button>
-    </div>
-    <div class="exp-details">
-
-      <div class="exp-panel active" id="panel-bell">
-        <div class="exp-role">Senior Android Engineer — <span>Tech Lead</span></div>
-        <div class="exp-meta">Bell Canada · Mississauga, Canada · April 2020 – Present</div>
-        <ul class="exp-list">
-          <li>Architect, develop, and maintain <strong>four high-performance Android applications</strong> — My Bell, Virgin Plus, My Lucky Mobile, and My PC Mobile — serving millions of Canadian customers using Kotlin, MVVM, Jetpack Compose, Kotlin Coroutines, and RxJava.</li>
-          <li>Lead a team of <strong>8 developers</strong> (including 3 offshore), owning features end-to-end through the full SDLC: from design and requirements through implementation, deployment, and ongoing support.</li>
-          <li>Optimize Android application performance using Dynatrace and LeakCanary; troubleshoot production issues ensuring high standards of reliability and usability across all four apps.</li>
-          <li>Collaborate with Product Managers, UX designers, and backend engineers to design APIs and deliver pixel-perfect UIs aligned with design specifications.</li>
-          <li>Write unit tests (Mockito, Espresso) and conduct thorough code reviews to maintain alignment with Android best practices; mentor junior developers and co-ops through pair programming.</li>
-          <li>Lead story structuring and requirement gathering sessions ensuring clear, actionable development goals across cross-functional stakeholder teams.</li>
-        </ul>
-        <div class="exp-tech">
-          <strong>Technologies:</strong> Kotlin · Kotlin Coroutines · Java · Android · Jetpack Compose · Jetpack Libraries · Room · MVVM · MVI · RxJava · HILT · Retrofit · Espresso · Mockito · Dynatrace · LeakCanary · Crashlytics · CircleCI · Git · Jira
-        </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">🤖</div>
+      <h3>AI &amp; Modern Workflows</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">AI Coding Assistants &amp; LLMs</span>
+        <span class="skill-tag">Spec-Driven Development</span>
+        <span class="skill-tag">AI-Assisted Development</span>
+        <span class="skill-tag">Prompt Engineering</span>
+        <span class="skill-tag">Reviewing &amp; Testing AI-Generated Code</span>
       </div>
-
-      <div class="exp-panel" id="panel-flipp">
-        <div class="exp-role">Senior Software Engineer @ <span>Flipp</span></div>
-        <div class="exp-meta">Flipp · Mississauga, Canada · March 2019 – April 2020</div>
-        <ul class="exp-list">
-          <li>Contributed to Discovery and Explore features of the Flipp app serving <strong>10+ million users</strong> across North America, building pixel-perfect UIs aligned with design specifications.</li>
-          <li>Spearheaded the migration from <strong>MVC to MVVM Architecture</strong> with RxJava and Kotlin, improving scalability and long-term maintainability.</li>
-          <li>Created an in-house Pattern Library enabling plug-and-play app components, reducing development time and enhancing reusability across the team.</li>
-          <li>Proposed and implemented location-based notifications and new flyer cross-browse logic, driving increased user engagement and revenue growth.</li>
-          <li>Refactored legacy code using TDD, Espresso, and Mockito; conducted code reviews and mentored a junior developer.</li>
-        </ul>
-        <div class="exp-tech">
-          <strong>Technologies:</strong> Java · Kotlin · Android · MVVM · RxJava · Espresso · Mockito · Retrofit · LeakCanary · CircleCI · Git · Jira
-        </div>
-      </div>
-
-      <div class="exp-panel" id="panel-bbm">
-        <div class="exp-role">Senior Software Engineer @ <span>BlackBerry Messenger</span></div>
-        <div class="exp-meta">BBM · Mississauga, Canada · July 2018 – March 2019</div>
-        <ul class="exp-list">
-          <li>Enhanced the messaging pillar of BBM serving <strong>~100 million users</strong>; led improvements to the Android communication framework, optimizing performance and functionality.</li>
-          <li>Implemented a non-persistent communication architecture for the Android Messenger, improving message handling efficiency and overall app performance.</li>
-          <li>Developed the user registration and login module from scratch; engineered notification systems for Android N and above.</li>
-          <li>Refactored legacy code using TDD and modern design patterns; mentored team members through pair programming and code reviews.</li>
-        </ul>
-        <div class="exp-tech">
-          <strong>Technologies:</strong> Java · Kotlin · Android · RxJava · Espresso · Retrofit · LeakCanary · Jenkins · Git
-        </div>
-      </div>
-
-      <div class="exp-panel" id="panel-paytm">
-        <div class="exp-role">Senior Software Engineer @ <span>Paytm</span></div>
-        <div class="exp-meta">Paytm · Noida, India · September 2016 – May 2018</div>
-        <ul class="exp-list">
-          <li>Developed the Return &amp; Replacement feature from scratch for Paytm's <strong>100 million daily active users</strong>; led the revamp of the Recharges &amp; Utilities section, scaling the app to handle millions of new users during demonetization.</li>
-          <li>Rewrote critical components (Order Detail, Home Screen) significantly improving Android application performance and UI for Paytm and Paytm Mall.</li>
-          <li>Partnered with Product Owners, UX designers, and backend teams to optimize API calls and implement new features; drove framework improvements reducing development time.</li>
-          <li>Managed and mentored a team of 2–3 junior developers; conducted code reviews and fostered technical growth.</li>
-        </ul>
-        <div class="exp-tech">
-          <strong>Technologies:</strong> Java · Kotlin · Android · RxJava · Espresso · Retrofit · LeakCanary · Jenkins · Bitbucket · Git
-        </div>
-      </div>
-
-      <div class="exp-panel" id="panel-amcat">
-        <div class="exp-role">Product Engineer II @ <span>Aspiring Minds (AMCAT)</span></div>
-        <div class="exp-meta">Aspiring Minds · Gurugram, India · February 2015 – September 2016</div>
-        <ul class="exp-list">
-          <li>Designed and developed MyAmcat from scratch — a platform serving <strong>100,000 daily active users</strong> enabling job applications, AMCAT test scheduling, and employability feedback.</li>
-          <li>Built Amtrack, an internal Android app for test center management with document upload, location tracking, and event management; delivered solutions across the full SDLC.</li>
-          <li>Integrated RESTful APIs (JSON, XML, OAuth) to ensure seamless backend service communication.</li>
-        </ul>
-        <div class="exp-tech">
-          <strong>Technologies:</strong> Java · Android · Retrofit · Volley · Git · Phabricator
-        </div>
-      </div>
-
-      <div class="exp-panel" id="panel-samsung">
-        <div class="exp-role">Software Engineer @ <span>Samsung Research Institute</span></div>
-        <div class="exp-meta">Samsung Research Institute · Noida, India · June 2013 – February 2015</div>
-        <ul class="exp-list">
-          <li>Engineered an RCS (Rich Communication Service) messaging client, optimizing transaction code and integrating legacy and IP messaging systems for cross-platform communication.</li>
-          <li>Contributed to the Commercial Mobile Alert System (CMAS) for U.S. emergency alert dissemination; developed Trash Box SMS feature enhancing user data retention and experience.</li>
-          <li>Placed through campus recruitment from NIT Raipur — one of India's top engineering institutes.</li>
-        </ul>
-        <div class="exp-tech">
-          <strong>Technologies:</strong> Java · Android · Perforce · Lint
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -702,7 +949,7 @@
 <!-- ─── EDUCATION ──────────────────────────────────────── -->
 <section id="education">
   <div class="section-heading">
-    <h2><span>04.</span>Education</h2>
+    <h2><span>06.</span>Education</h2>
     <hr class="section-line">
   </div>
   <div class="edu-grid">
@@ -722,15 +969,15 @@
 <!-- ─── CONTACT ────────────────────────────────────────── -->
 <section id="contact">
   <div class="section-heading">
-    <h2><span>05.</span>Get In Touch</h2>
+    <h2><span>07.</span>Get In Touch</h2>
   </div>
   <p class="contact-title">Let's Work Together</p>
   <p class="contact-desc">
-    I'm open to new opportunities, collaborations, and conversations. Whether you have a role in mind or just want to connect — my inbox is always open.
+    Hiring for a senior Android or tech lead role, or have an app or website you want built? I'd like to hear about it.
   </p>
   <a class="btn-primary" href="mailto:sibaditya.maiti@gmail.com" style="display:inline-block">Say Hello ✉️</a>
   <div class="contact-cards">
-    <a class="contact-card" href="https://www.linkedin.com/in/sibadityamaiti" target="_blank">
+    <a class="contact-card" href="https://www.linkedin.com/in/sibadityamaiti" target="_blank" rel="noopener">
       <span class="contact-card-icon">💼</span>
       linkedin.com/in/sibadityamaiti
     </a>
@@ -748,7 +995,7 @@
 <!-- ─── FOOTER ─────────────────────────────────────────── -->
 <footer>
   <p>Designed &amp; Built by <a href="#hero">Sibaditya Maiti</a> · Milton, Canada</p>
-  <p style="margin-top:8px; font-size:0.72rem; opacity:0.6;">Open to Senior Android Engineering &amp; Tech Lead roles</p>
+  <p class="foot-links"><a href="https://hazelcrow.com" target="_blank" rel="noopener">Hazelcrow</a><a href="https://hazelcrow.com/docsmith/" target="_blank" rel="noopener">Docsmith</a><a href="https://www.linkedin.com/in/sibadityamaiti" target="_blank" rel="noopener">LinkedIn</a></p>
 </footer>
 
 <script>
