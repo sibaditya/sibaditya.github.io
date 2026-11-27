@@ -472,6 +472,38 @@
     footer .foot-links a { margin: 0 10px; }
     :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
 
+
+    /* ─── CONTACT FORM ────────────────────────────────── */
+    .contact-form {
+      max-width: 620px; margin: 0 auto; text-align: left;
+      background: var(--navy-light); border: 1px solid rgba(100,255,218,0.12);
+      border-radius: 8px; padding: 32px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .form-field { display: flex; flex-direction: column; margin-bottom: 18px; }
+    .form-field label { font-family: var(--font-mono); font-size: 0.78rem; color: var(--green); margin-bottom: 6px; }
+    .form-field label .req { color: var(--slate); }
+    .form-field input, .form-field textarea {
+      background: var(--navy); color: var(--white-bright);
+      border: 1px solid rgba(136,146,176,0.35); border-radius: 4px;
+      padding: 12px 14px; font: inherit; font-size: 0.95rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-field textarea { min-height: 140px; resize: vertical; }
+    .form-field input:focus, .form-field textarea:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(100,255,218,0.12); }
+    .form-field.invalid input, .form-field.invalid textarea { border-color: #ff6b81; }
+    .field-error { color: #ff8da1; font-size: 0.78rem; margin-top: 6px; min-height: 1em; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .contact-form button[type=submit] {
+      width: 100%; cursor: pointer; background: transparent;
+    }
+    .contact-form button[disabled] { opacity: 0.6; cursor: progress; }
+    .form-status { margin-top: 16px; font-size: 0.92rem; text-align: center; min-height: 1.4em; }
+    .form-status.ok { color: var(--green); }
+    .form-status.err { color: #ff8da1; }
+    .form-char { text-align: right; font-family: var(--font-mono); font-size: 0.7rem; color: var(--slate); margin-top: 4px; }
+    @media (max-width: 768px) { .form-row { grid-template-columns: 1fr; gap: 0; } .contact-form { padding: 24px 20px; } }
+
     /* ─── SCROLLBAR ───────────────────────────────────── */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--navy); }
@@ -973,9 +1005,39 @@
   </div>
   <p class="contact-title">Let's Work Together</p>
   <p class="contact-desc">
-    Hiring for a senior Android or tech lead role, or have an app or website you want built? I'd like to hear about it.
+    Hiring for a senior Android or tech lead role, or have an app or website you want built? Send me a message below.
   </p>
-  <a class="btn-primary" href="mailto:sibaditya.maiti@gmail.com" style="display:inline-block">Say Hello ✉️</a>
+  <form class="contact-form" id="contact-form" novalidate>
+    <input type="hidden" name="access_key" value="5658926c-ee92-4330-bfbd-b6dc04d1a96f">
+    <input type="hidden" name="subject" value="New message from sibaditya.github.io">
+    <input type="hidden" name="from_name" value="Portfolio Contact Form">
+    <div class="hp" aria-hidden="true"><label>Leave empty <input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
+    <div class="form-row">
+      <div class="form-field">
+        <label for="cf-name">Name <span class="req">*</span></label>
+        <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="80" required>
+        <span class="field-error" id="cf-name-err" role="alert"></span>
+      </div>
+      <div class="form-field">
+        <label for="cf-email">Email <span class="req">*</span></label>
+        <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="120" required>
+        <span class="field-error" id="cf-email-err" role="alert"></span>
+      </div>
+    </div>
+    <div class="form-field">
+      <label for="cf-phone">Phone <span class="req">(optional)</span></label>
+      <input id="cf-phone" name="phone" type="tel" autocomplete="tel" maxlength="25" placeholder="+1 416 555 0123">
+      <span class="field-error" id="cf-phone-err" role="alert"></span>
+    </div>
+    <div class="form-field">
+      <label for="cf-message">Message <span class="req">*</span></label>
+      <textarea id="cf-message" name="message" maxlength="2000" required></textarea>
+      <div class="form-char"><span id="cf-count">0</span>/2000</div>
+      <span class="field-error" id="cf-message-err" role="alert"></span>
+    </div>
+    <button class="btn-primary" type="submit" id="cf-submit">Send Message ✉️</button>
+    <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
+  </form>
   <div class="contact-cards">
     <a class="contact-card" href="https://www.linkedin.com/in/sibadityamaiti" target="_blank" rel="noopener">
       <span class="contact-card-icon">💼</span>
@@ -1011,6 +1073,72 @@
     document.querySelector('nav').style.boxShadow =
       window.scrollY > 20 ? '0 4px 30px rgba(0,0,0,0.4)' : 'none';
   });
+
+  // ─── Contact form: validation + send without leaving the page ───
+  (function () {
+    const ENDPOINT = 'https://api.web3forms.com/submit';
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+    const status = document.getElementById('cf-status');
+    const btn = document.getElementById('cf-submit');
+    const f = { name: form.name, email: form.email, phone: form.phone, message: form.message };
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    const PHONE_RE = /^[+]?[0-9 ()\-.]{7,20}$/;
+
+    function setErr(key, msg) {
+      const wrap = f[key].closest('.form-field');
+      document.getElementById('cf-' + key + '-err').textContent = msg || '';
+      wrap.classList.toggle('invalid', !!msg);
+      f[key].setAttribute('aria-invalid', msg ? 'true' : 'false');
+    }
+    const rules = {
+      name: v => !v.trim() ? 'Please enter your name.' : v.trim().length < 2 ? 'Name is too short.' : '',
+      email: v => !v.trim() ? 'Please enter your email.' : !EMAIL_RE.test(v.trim()) ? 'Enter a valid email, like name@example.com.' : '',
+      phone: v => v.trim() && !PHONE_RE.test(v.trim()) ? 'Enter a valid phone number.' : '',
+      message: v => !v.trim() ? 'Please write a message.' : v.trim().length < 10 ? 'Message must be at least 10 characters.' : ''
+    };
+    function validate(key) { const m = rules[key](f[key].value); setErr(key, m); return !m; }
+
+    Object.keys(f).forEach(k => {
+      f[k].addEventListener('blur', () => validate(k));
+      f[k].addEventListener('input', () => { if (f[k].closest('.form-field').classList.contains('invalid')) validate(k); });
+    });
+    f.message.addEventListener('input', () => { document.getElementById('cf-count').textContent = f.message.value.length; });
+
+    function show(msg, ok) { status.textContent = msg; status.className = 'form-status ' + (ok ? 'ok' : 'err'); }
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      status.textContent = '';
+      const results = Object.keys(f).map(validate);
+      if (results.includes(false)) {
+        const first = Object.keys(f).find(k => f[k].getAttribute('aria-invalid') === 'true');
+        if (first) f[first].focus();
+        return;
+      }
+      if (form.botcheck.value) return; // honeypot
+      const data = new FormData(form);
+      if (String(data.get('access_key')).startsWith('YOUR_')) {
+        show('The form is not set up yet. Please email sibaditya.maiti@gmail.com directly.', false);
+        return;
+      }
+      btn.disabled = true; btn.textContent = 'Sending…';
+      try {
+        const res = await fetch(ENDPOINT, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data });
+        const json = await res.json().catch(() => ({}));
+        if (res.ok && json.success) {
+          form.reset(); document.getElementById('cf-count').textContent = '0';
+          show('Thanks! Your message was sent. I will get back to you soon.', true);
+        } else {
+          show('Sorry, the message could not be sent. Please try again or email sibaditya.maiti@gmail.com.', false);
+        }
+      } catch (err) {
+        show('Network error. Please check your connection and try again.', false);
+      } finally {
+        btn.disabled = false; btn.textContent = 'Send Message ✉️';
+      }
+    });
+  })();
 </script>
 
 </body>
